@@ -104,7 +104,7 @@ func MD5All(root string) (map[string][md5.Size]byte, error) {
 		close(c)
 	}()
 
-	// Start a fixed number of goroutines and digest files
+	// range through the results and add to the map
 	m := make(map[string][md5.Size]byte)
 	for r := range c {
 		if r.err != nil {
