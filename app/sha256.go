@@ -50,7 +50,6 @@ func SHA256Digester(done <-chan struct{}, paths <-chan string, c chan<- SHA256Re
 
 // bounded concurrent implementation of SHA256All
 func SHA256All(root string) (map[string][sha256.Size]byte, error) {
-	fmt.Println("Parallelism:", parallelism)
 	// SHA256All closes the done channel when it returns; it may do so before
 	// receiving all the values from c and errc
 	done := make(chan struct{})
